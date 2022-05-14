@@ -26,7 +26,8 @@ app.get('/restaurants/:id', (req, res) => {
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword.trim()
   if (!keyword.length) {
-    res.redirect('/')
+    // res.redirect('/')
+    res.render('index', {restaurant: [], author: true})
   } else {
     const restaurant = restaurantList.results.filter(item => {
       return item.name.toLowerCase().includes(keyword.toLowerCase())
